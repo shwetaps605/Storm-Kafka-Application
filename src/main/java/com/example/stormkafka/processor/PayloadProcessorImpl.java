@@ -22,9 +22,10 @@ public class PayloadProcessorImpl implements PayloadProcessor {
     }
 
     @Override
-    public double processPayload(PayloadDto payload){
+    public String processPayload(PayloadDto payload){
         List<ValuesDto> values = payload.getContent().getValues();
-        ValuesDto batteryVoltage = values.get(2);
-        return batteryVoltage.getValue();
+        //ValuesDto batteryVoltage = values.get(2);
+        ValuesDto message = values.get(0);
+        return message.getValue();
     }
 }

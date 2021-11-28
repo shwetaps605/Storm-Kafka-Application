@@ -28,8 +28,8 @@ public class PayloadConsumerBolt extends BaseRichBolt {
     public void execute(Tuple tuple) {
         LOG.info("Start --> Processing payload");
         PayloadDto payload = (PayloadDto) tuple.getValueByField("payload-dto");
-        double batteryVoltageValue = processor.processPayload(payload);
-        System.out.println("BATTERY VOLTAGE:"+batteryVoltageValue);
+        String message = processor.processPayload(payload);
+        System.out.println("RECEIVED MESSAGE FROM SAM IS:"+message);
         this.collector.ack(tuple);
         LOG.info("Done --> Processing payload");
     }
